@@ -1,0 +1,32 @@
+{
+  "title": "Employees",
+  "type": "object",
+  "required": [],
+  "translatable": [],
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "title": "First Name",
+      "order": "None"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "Last Name",
+      "order": "None"
+    },
+    "image": {
+      "type": "array",
+      "title": "Image",
+      "order": "None",
+      "allowedFileType": "Images",
+      "maxSize": null,
+      "path": "employees",
+      "maxItems": 1,
+      "items": {
+        "type": "string",
+        "format": "file"
+      },
+      "format": "data-url"
+    }
+  }
+}
