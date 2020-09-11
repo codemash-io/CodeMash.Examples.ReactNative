@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, SafeAreaView } from 'react-native';
 import SimpleList from '../components/Lists/SimpleList';
 import useFind from '../hooks/useFind';
 import LoadingIndicator from '../components/LoadingIndicator';
@@ -19,7 +19,7 @@ const EmployeesScreen = () => {
   }
 
   const goToDetails = (item) => {
-    alert('go to details page');
+    alert(`Greetings from ${item.first_name} ${item.last_name}`);
   };
 
   return (
@@ -34,22 +34,24 @@ const EmployeesScreen = () => {
       )}
       {/* Render data  */}
       {result && result.length > 0 && (
-        <SimpleList
-          source={result}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => goToDetails(item)}>
-              <EmployeeCard
-                item={item}
-              />
-            </TouchableOpacity>
-          )}
-          loadMoreData={find}
-          noMoreResults={noMoreResults}
-          isLoading={isLoading === PROJECT_CONFIG.LOADING_INDICATOR.PAGING}
-          contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 10 }}
-          onRefresh={() => find(true)}
-          isRefreshing={isRefreshing}
-        />
+        <SafeAreaView style={{flex:1}}>
+          <SimpleList
+            source={result}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => goToDetails(item)}>
+                <EmployeeCard
+                  item={item}
+                />
+              </TouchableOpacity>
+            )}
+            loadMoreData={find}
+            noMoreResults={noMoreResults}
+            isLoading={isLoading === PROJECT_CONFIG.LOADING_INDICATOR.PAGING}
+            contentContainerStyle={{ paddingHorizontal: 15, paddingVertical: 10 }}
+            onRefresh={() => find(true)}
+            isRefreshing={isRefreshing}
+          />
+        </SafeAreaView>
       )}
     </>
   );

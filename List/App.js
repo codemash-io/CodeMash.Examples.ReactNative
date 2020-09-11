@@ -6,14 +6,12 @@ import EmployeesScreen from './src/screens/Employees.js';
 
 export default function App() {
 
-  useEffect(() => {
-    // CodeMash initialization
-    config.init({
-      secretKey: 'QOvCjN5G1kJ2sAWHclzdAEwi_3GqjRZu',
-      projectId: 'c7e12daf-5dd2-4f42-b09f-6adf91075d4c'
-    }, process.env.NODE_ENV);
-  }, []);
-
+  // CodeMash initialization
+  config.init({
+    secretKey: 'QOvCjN5G1kJ2sAWHclzdAEwi_3GqjRZu',
+    projectId: 'c7e12daf-5dd2-4f42-b09f-6adf91075d4c'
+  }, process.env.NODE_ENV);
+  
   return (
     <View style={styles.container}>
       <EmployeesScreen />

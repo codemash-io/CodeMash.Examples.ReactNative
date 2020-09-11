@@ -34,8 +34,6 @@ export default ({ collectionName, filter, pageSize, pageNumber, sort, projection
         }
       );
 
-      console.log("response", response)
-
       if (response && response.result) {
         let newTotalGot = 0;
 

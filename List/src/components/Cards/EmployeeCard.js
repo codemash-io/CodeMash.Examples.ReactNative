@@ -1,64 +1,59 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import { Image } from 'react-native-elements';
-import Colors from '../../config/Colors';
+import Colors, { lightColors } from '../../config/Colors';
 import AvatarImage from '../AvatarImage';
 
 const EmployeeCard = ({ item }) => {
   
   return (
-    <View style={styles.container}>      
-      <View style={styles.content}>
+    <View style={styles.content}>        
         <View style={styles.leftContent}>
-          <Text numberOfLines={2} style={styles.title}>{item.first_name}</Text>
-          <Text numberOfLines={3} style={styles.subtitle}>{item.last_name}</Text>
+          <AvatarImage source={item.image} />            
         </View>
         <View style={styles.rightContent}>
-          <AvatarImage source={item.image } />
+          <Text style={styles.title}>{`${item.first_name} ${item.last_name}`}</Text>
+          <Text style={styles.subtitle}>{item.position}</Text>
         </View>
-      </View>
-    </View>
-  );
+      </View>     
+  );  
 };
 
 export default EmployeeCard;
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
+  content: {    
+    flexDirection: 'row',
+    backgroundColor: lightColors.light1,
     borderColor: Colors.lightBorder,
     elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
     borderRadius: 2,
     marginBottom: 10,
     paddingHorizontal: 15,
     paddingTop: 10,
-    paddingBottom: 20,
-    height: 165,
-  },
-  content: {
-    marginTop: 15,
-    flexDirection: 'row',
+    paddingBottom: 10,
+    height: 100,
   },
   leftContent: {
-    width: '70%',
+    width: '30%',
   },
-  title: {
-    // fontFamily: 'Inter-SemiBold',
-    color: Colors.contentTitle,
+  title: {    
+    color: Colors.contentHeader,
+    fontWeight: '700',
+    fontSize: 20,
     marginBottom: 10,
   },
-  subtitle: {
-    // fontFamily: 'Inter-Regular',
-    color: Colors.blandText,
+  subtitle: {    
+    color: Colors.headerSubtitle,
   },
   rightContent: {
-    alignItems: 'center',
-    width: '30%',
-    paddingLeft: 10,
-  },
-  imageContainer: {
-    height: 50,
-    width: 50,
-  },
+    alignItems: 'flex-start',
+    width: '70%',
+    paddingLeft: 5,
+    paddingTop: 5
+  }
 });

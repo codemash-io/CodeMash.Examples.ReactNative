@@ -26,7 +26,6 @@ const SimpleList = ({ source, title, renderItem, idField, loadMoreData, noMoreRe
 
   return (
     <View style={{ minHeight: '100%' }}>
-      {title && <Text>{title}</Text>}
       <FlatList
         render
         contentContainerStyle={contentContainerStyle}

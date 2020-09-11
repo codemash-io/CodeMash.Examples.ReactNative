@@ -81,15 +81,3 @@ export const lightColors = {
   light9: '#f6f7f6',
   light10: '#fafafa',
 };
-
-export const distributorColors = {
-  headerTitle: '#B7BDBF',
-  headerValue: '#44629A',
-  contentTitle: '#6C757D',
-  subtitle: '#B7BDBF',
-  progress: '#E0C434',
-  completed: '#12B357',
-  buttonBackground: '#F4743B',
-  buttonBackgroundLight: '#FAEBE5',
-  divider: '#E4F2FD',
-};
